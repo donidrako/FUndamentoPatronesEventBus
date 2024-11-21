@@ -1,4 +1,4 @@
-package com.example.fundamentopatroneseventbus
+package com.example.fundamentopatroneseventbus.eventBus
 
 import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.flow.MutableSharedFlow

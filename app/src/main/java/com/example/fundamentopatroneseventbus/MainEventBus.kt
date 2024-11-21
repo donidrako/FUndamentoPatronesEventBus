@@ -1,5 +1,12 @@
 package com.example.fundamentopatroneseventbus
 
+import com.example.fundamentopatroneseventbus.eventBus.EventBus
+import com.example.fundamentopatroneseventbus.eventBus.Result
+import com.example.fundamentopatroneseventbus.eventBus.SportEvent
+import com.example.fundamentopatroneseventbus.eventBus.getAdEventsInRealtime
+import com.example.fundamentopatroneseventbus.eventBus.getEventsInRealtime
+import com.example.fundamentopatroneseventbus.eventBus.getResultEventsInRealtime
+import com.example.fundamentopatroneseventbus.singleton.Singleton
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -22,7 +29,7 @@ private val scope = CoroutineScope(Dispatchers.IO + job)
 fun main() {
     // `fun`: palabra clave para declarar una función.
     // `main`: punto de entrada del programa. Es la primera función que se ejecuta.
-    initEventBus() // Llama a una función para inicializar el EventBus.
+    inicializarEventBus() // Llama a una función para inicializar el EventBus.
     runBlocking {
         // `runBlocking`: bloquea el hilo principal y permite ejecutar código que contiene corutinas.
         // configuracionDeSuscripcion(scope) // Configura la primera suscripción al EventBus.
@@ -41,10 +48,11 @@ fun main() {
  * Esta función asigna una nueva instancia de EventBus a la variable global `eventBus`.
  * Debe llamarse antes de cualquier operación relacionada con el EventBus.
  */
-private fun initEventBus() {
+private fun inicializarEventBus() {
     // `private`: hace que esta función solo sea accesible dentro de este archivo o clase.
     // Inicializa el EventBus asignándole una nueva instancia.
-    eventBus = EventBus()
+    eventBus = Singleton.eventBusInstance()
+    // Asigna la instancia de EventBus desde el Singleton.
 }
 /**
  * Configura la suscripción para escuchar eventos de tipo `Result`.

@@ -1,4 +1,4 @@
-package com.example.fundamentopatroneseventbus
+package com.example.fundamentopatroneseventbus.eventBus
 
 /**
  * Devuelve una lista de resultados de eventos deportivos en tiempo real.
@@ -30,7 +30,11 @@ fun getEventsInRealtime() = listOf(
  */
 fun getResultEventsInRealtime() = listOf(
     SportEvent.ResultSuccess(1, "Fútbol", listOf("Italia", "Perú", "Corea del Sur")),
-    SportEvent.ResultSuccess(2, "Levantamiento de Pesas", listOf("Mongolia", "Alemania", "Turquía")),
+    SportEvent.ResultSuccess(
+        2,
+        "Levantamiento de Pesas",
+        listOf("Mongolia", "Alemania", "Turquía")
+    ),
     SportEvent.ResultError(10, "Error de red."),
     SportEvent.ResultSuccess(3, "Gimnasia Rítmica", listOf("Rusia", "USA", "Francia")),
     SportEvent.ResultSuccess(4, "Polo Acuático", listOf("España", "Vietnam", "USA")),

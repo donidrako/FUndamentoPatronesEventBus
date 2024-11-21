@@ -1,4 +1,4 @@
-package com.example.fundamentopatroneseventbus
+package com.example.fundamentopatroneseventbus.eventBus
 
 /**
  * Clase sellada que representa los diferentes tipos de eventos deportivos.

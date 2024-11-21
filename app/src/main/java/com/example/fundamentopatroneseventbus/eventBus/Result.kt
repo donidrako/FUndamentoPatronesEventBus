@@ -1,4 +1,4 @@
-package com.example.fundamentopatroneseventbus
+package com.example.fundamentopatroneseventbus.eventBus
 
 /**
  * Clase de datos que representa el resultado de un evento deportivo.
