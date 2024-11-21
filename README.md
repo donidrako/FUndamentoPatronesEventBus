@@ -20,10 +20,10 @@ Para agregar o suscribirse a un evento, puedes utilizar el siguiente patrón:
 kotlin
 Copiar código
 // Emisor
-eventBus.post(MyEvent("Nuevo Evento"))
+```eventBus.post(MyEvent("Nuevo Evento"))
 
 // Receptor
-@Subscribe
+```@Subscribe
 fun onMyEvent(event: MyEvent) {
     // Manejar el evento
     println("Recibido evento: ${event.message}")
@@ -47,12 +47,12 @@ Registra EventBus en tu aplicación (generalmente en el MainActivity):
 
 kotlin
 Copiar código
-override fun onCreate(savedInstanceState: Bundle?) {
+```override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     EventBus.getDefault().register(this)
 }
 
-override fun onDestroy() {
+```override fun onDestroy() {
     super.onDestroy()
     EventBus.getDefault().unregister(this)
 }
@@ -62,15 +62,15 @@ Puedes publicar eventos de la siguiente manera:
 kotlin
 Copiar código
 // Crear un evento
-val myEvent = MyEvent("Nuevo Evento")
+```val myEvent = MyEvent("Nuevo Evento")
 
 // Publicar el evento
-EventBus.getDefault().post(myEvent)
+```EventBus.getDefault().post(myEvent)
 Los receptores pueden suscribirse a los eventos como se muestra a continuación:
 
 kotlin
 Copiar código
-@Subscribe
+```@Subscribe
 fun onMyEvent(event: MyEvent) {
     // Manejar el evento
     println("Recibido evento: ${event.message}")
